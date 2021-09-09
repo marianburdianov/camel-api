@@ -1,0 +1,8 @@
+ds.map(payload, function(customer, item)
+  {
+        customerId: customer.customer_id,
+        firstName: customer.first_name,
+        lastName: customer.last_name,
+        phoneNumber: customer.phone_number,
+        address: customer.address
+})

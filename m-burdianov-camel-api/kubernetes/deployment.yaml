@@ -1,0 +1,76 @@
+############
+#Deployment#
+############
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: camel-project
+  labels:
+    app: camel-project
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: camel-project
+  template:
+    metadata:
+      labels:
+        app: camel-project
+    spec:
+      containers:
+      - name: camel-project
+        image: mburdianov/shop-management-sys-api
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 9000
+        env:
+        - name: spring.datasource.url
+          valueFrom:
+            configMapKeyRef:
+              name: mysql-config-map
+              key: url
+        - name: spring.datasource.username
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: username
+        - name: spring.datasource.password
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: password
+---
+#########
+#Service#
+#########
+apiVersion: v1
+kind: Service
+metadata:
+  name: camel-project-service
+spec:
+  selector:
+    app: camel-project
+  ports:
+    - protocol: TCP
+      port: 9000
+      targetPort: 9000
+---
+#########
+#Ingress#
+#########
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: camel-api
+spec:
+  rules:
+  - host: camel-api.com
+    http:
+      paths:
+      - path: /api
+        pathType: Prefix
+        backend:
+          service:
+            name: camel-project-service
+            port:
+              number: 9000

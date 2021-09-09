@@ -1,0 +1,52 @@
+[
+  {
+    "employeeId": 1,
+    "firstName": "Virat",
+    "lastName": "Adams",
+    "gender": "male",
+    "birthDate": "1980-12-05",
+    "hireDate": "2015-10-09",
+    "role": "Supervisor",
+    "salary": 3800
+  },
+  {
+    "employeeId": 2,
+    "firstName": "Steve",
+    "lastName": "Baker",
+    "gender": "male",
+    "birthDate": "1985-02-24",
+    "hireDate": "2011-12-21",
+    "role": "Paint Specialist",
+    "salary": 2000
+  },
+  {
+    "employeeId": 3,
+    "firstName": "Mitchel",
+    "lastName": "Davis",
+    "gender": "male",
+    "birthDate": "1988-01-15",
+    "hireDate": "2019-05-11",
+    "role": "Coordinator",
+    "salary": 18000
+  },
+  {
+    "employeeId": 4,
+    "firstName": "Kevin",
+    "lastName": "Frank",
+    "gender": "male",
+    "birthDate": "1979-10-28",
+    "hireDate": "2012-01-22",
+    "role": "Cashier",
+    "salary": 2300
+  },
+  {
+    "employeeId": 5,
+    "firstName": "Ricky",
+    "lastName": "Valdo",
+    "gender": "male",
+    "birthDate": "1981-07-30",
+    "hireDate": "2017-03-07",
+    "role": "Manager",
+    "salary": 2400
+  }
+]

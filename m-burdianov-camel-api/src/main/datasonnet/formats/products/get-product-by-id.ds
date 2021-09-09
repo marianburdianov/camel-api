@@ -1,0 +1,7 @@
+ds.map(payload, function(product, item)
+  {
+        productId: product.product_id,
+        name: product.name,
+        price: product.price,
+        quantity: product.quantity
+})

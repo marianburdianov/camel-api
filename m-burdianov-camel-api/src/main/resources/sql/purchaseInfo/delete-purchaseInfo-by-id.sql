@@ -1,0 +1,1 @@
+DELETE FROM purchaseinfos WHERE purchaseinfo_id = :#purchaseInfoId

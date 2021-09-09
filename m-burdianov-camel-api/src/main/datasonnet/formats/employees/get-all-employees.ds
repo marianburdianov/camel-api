@@ -1,0 +1,11 @@
+ds.map(payload, function(employee, item)
+  {
+        employeeId: employee.employee_id,
+        firstName: employee.first_name,
+        lastName: employee.last_name,
+        gender: employee.gender,
+        birthDate: employee.birth_date,
+        hireDate: employee.hire_date,
+        role: employee.role,
+        salary: employee.salary
+})

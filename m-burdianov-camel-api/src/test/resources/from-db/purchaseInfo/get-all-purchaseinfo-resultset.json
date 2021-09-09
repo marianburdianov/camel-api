@@ -1,0 +1,92 @@
+[
+  {
+    "purchaseinfo_id": 1,
+    "employee_id": 1,
+    "customer_id": 1,
+    "cost": 2,
+    "amount": 4,
+    "date": "2020-03-20",
+    "product_id": 1
+  },
+  {
+    "purchaseinfo_id": 1,
+    "employee_id": 1,
+    "customer_id": 1,
+    "cost": 2,
+    "amount": 4,
+    "date": "2020-03-20",
+    "product_id": 2
+  },
+  {
+    "purchaseinfo_id": 2,
+    "employee_id": 2,
+    "customer_id": 2,
+    "cost": 3,
+    "amount": 5,
+    "date": "2020-05-21",
+    "product_id": 2
+  },
+  {
+    "purchaseinfo_id": 2,
+    "employee_id": 2,
+    "customer_id": 2,
+    "cost": 3,
+    "amount": 5,
+    "date": "2020-05-21",
+    "product_id": 3
+  },
+  {
+    "purchaseinfo_id": 3,
+    "employee_id": 3,
+    "customer_id": 3,
+    "cost": 5,
+    "amount": 1,
+    "date": "2021-07-01",
+    "product_id": 4
+  },
+  {
+    "purchaseinfo_id": 3,
+    "employee_id": 3,
+    "customer_id": 3,
+    "cost": 5,
+    "amount": 1,
+    "date": "2021-07-01",
+    "product_id": 5
+  },
+  {
+    "purchaseinfo_id": 4,
+    "employee_id": 4,
+    "customer_id": 4,
+    "cost": 4,
+    "amount": 3,
+    "date": "2020-03-20",
+    "product_id": 1
+  },
+  {
+    "purchaseinfo_id": 4,
+    "employee_id": 4,
+    "customer_id": 4,
+    "cost": 4,
+    "amount": 3,
+    "date": "2020-03-20",
+    "product_id": 2
+  },
+  {
+    "purchaseinfo_id": 5,
+    "employee_id": 5,
+    "customer_id": 5,
+    "cost": 1,
+    "amount": 2,
+    "date": "2020-03-20",
+    "product_id": 3
+  },
+  {
+    "purchaseinfo_id": 5,
+    "employee_id": 5,
+    "customer_id": 5,
+    "cost": 1,
+    "amount": 2,
+    "date": "2020-03-20",
+    "product_id": 4
+  }
+]

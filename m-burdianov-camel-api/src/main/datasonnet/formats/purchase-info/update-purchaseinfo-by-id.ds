@@ -1,0 +1,13 @@
+/** DataSonnet
+version=2.0
+output application/json
+input payload application/json
+*/
+{
+    employeeId: payload.employeeId,
+    customerId: payload.customerId,
+    cost: payload.cost,
+    amount: payload.amount,
+    date: payload.date,
+    productId: payload.productId
+}

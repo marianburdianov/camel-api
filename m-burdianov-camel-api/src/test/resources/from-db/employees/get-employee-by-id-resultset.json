@@ -1,0 +1,12 @@
+[
+  {
+    "employee_id": 1,
+    "first_name": "Virat",
+    "last_name": "Adams",
+    "gender": "male",
+    "birth_date": "1980-12-05",
+    "hire_date": "2015-10-09",
+    "role": "Supervisor",
+    "salary": 3800
+  }
+]

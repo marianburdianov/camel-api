@@ -1,0 +1,39 @@
+spring:
+  main:
+    banner-mode: off
+  application:
+    name: ${project.artifactId}
+  datasource:
+    url: jdbc:mysql://localhost:3306/shop_management_db?useLegacyDatetimeCode=false&serverTimezone=Australia/Sydney&useSSL=false
+    username: root
+    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    initialization-mode: always
+camel:
+  springboot:
+    name: ${project.artifactId}
+    use-mdc-logging: true
+  rest:
+    port: 9000
+    context-path: /api
+management:
+  endpoint:
+    camelroutes:
+      enabled: true
+      read-only: true
+    health:
+      enabled: true
+      probes:
+        enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: info,health,camelroutes
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
+
+server:
+  port: 8094

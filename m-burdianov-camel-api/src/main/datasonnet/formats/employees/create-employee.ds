@@ -1,0 +1,14 @@
+/** DataSonnet
+version=2.0
+output application/json
+input payload application/json
+*/
+{
+    firstName: payload.firstName,
+    lastName: payload.lastName,
+    gender: payload.gender,
+    birthDate: payload.birthDate,
+    hireDate: payload.hireDate,
+    role: payload.role,
+    salary: payload.salary
+}

@@ -1,0 +1,10 @@
+ds.map(payload, function(purchaseinfo, item)
+  {
+        purchaseInfoId: purchaseinfo.purchaseinfo_id,
+        employeeId: purchaseinfo.employee_id,
+        customerId: purchaseinfo.customer_id,
+        cost: purchaseinfo.cost,
+        amount: purchaseinfo.amount,
+        date: purchaseinfo.date,
+        productId: purchaseinfo.product_id
+})

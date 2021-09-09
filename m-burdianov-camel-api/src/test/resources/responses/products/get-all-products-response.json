@@ -1,0 +1,32 @@
+[
+  {
+    "productId": 1,
+    "name": "Rice",
+    "price": 2,
+    "quantity": 4
+  },
+  {
+    "productId": 2,
+    "name": "Pasta",
+    "price": 1,
+    "quantity": 5
+  },
+  {
+    "productId": 3,
+    "name": "Biscuits",
+    "price": 3,
+    "quantity": 2
+  },
+  {
+    "productId": 4,
+    "name": "Bread",
+    "price": 5,
+    "quantity": 4
+  },
+  {
+    "productId": 5,
+    "name": "Chips",
+    "price": 1,
+    "quantity": 2
+  }
+]

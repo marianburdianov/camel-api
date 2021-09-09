@@ -1,0 +1,5 @@
+kubectl delete -f ./mysql-secrets.yaml
+kubectl delete -f ./mysql-config-map.yaml
+kubectl delete -f ./mysql-persistence.yaml
+kubectl delete -f ./deployment.yaml
+kubectl delete -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.45.0/deploy/static/provider/cloud/deploy.yaml

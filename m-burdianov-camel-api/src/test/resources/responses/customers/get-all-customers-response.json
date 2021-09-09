@@ -1,0 +1,37 @@
+[
+  {
+    "customerId": 1,
+    "firstName": "Rick",
+    "lastName": "Novak",
+    "phoneNumber": 123456789,
+    "address": "Rick Address"
+  },
+  {
+    "customerId": 2,
+    "firstName": "Susan",
+    "lastName": "Connor",
+    "phoneNumber": 84309595,
+    "address": "Susan Address"
+  },
+  {
+    "customerId": 3,
+    "firstName": "Ronald",
+    "lastName": "Barr",
+    "phoneNumber": 94935453546,
+    "address": "Ronald Address"
+  },
+  {
+    "customerId": 4,
+    "firstName": "Roger",
+    "lastName": "Lum",
+    "phoneNumber": 754564435,
+    "address": "Roger Address"
+  },
+  {
+    "customerId": 5,
+    "firstName": "Jeff",
+    "lastName": "Johnson",
+    "phoneNumber": 976446865,
+    "address": "Jeff Address"
+  }
+]

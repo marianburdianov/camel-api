@@ -1,0 +1,588 @@
+---
+openapi: 3.0.0
+info:
+  title: Shop Management API
+  description: This is a simple Shop Management API
+  contact:
+    email: you@your-company.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+- url: https://virtserver.swaggerhub.com/marianburdianov/ShopManagement/1.0.0
+  description: SwaggerHub API Auto Mocking
+security:
+- bearerAuth: []
+tags:
+- name: admins
+  description: Secured Admin-only calls
+- name: developers
+  description: Operations available to regular developers
+paths:
+  /employees:
+    get:
+      tags:
+      - Employees
+      summary: Returns a list of employees.
+      description: This is a description
+      operationId: getEmployees
+      responses:
+        "200":
+          description: A JSON array of employee names
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Employees'
+    post:
+      tags:
+      - Employees
+      summary: Adds a new employee
+      operationId: postEmployees
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Employee'
+      responses:
+        "201":
+          description: OK
+        "400":
+          description: Bad request. Empoyee ID must be an integer and larger than 0.
+        "401":
+          description: Authorization information is missing or invalid.
+  /employees/{employeeId}:
+    get:
+      tags:
+      - Employees
+      summary: Gets an employee by ID
+      operationId: getEmployeeById
+      parameters:
+      - name: employeeId
+        in: path
+        description: Employee ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Employee'
+        "400":
+          description: Bad request. Employee ID must be an integer and larger than 0.
+        "401":
+          description: Authorization information is missing or invalid.
+        "404":
+          description: An Employee with the specified ID was not found.
+        "500":
+          description: Unexpected error.
+    put:
+      tags:
+      - Employees
+      summary: Updates an employee with form data
+      operationId: updateEmployee
+      parameters:
+      - name: employeeId
+        in: path
+        description: ID of employee that needs to be updated
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Employee'
+      responses:
+        "201":
+          description: OK
+        "400":
+          description: Bad request. Empoyee ID must be an integer and larger than 0.
+        "401":
+          description: Authorization information is missing or invalid.
+    delete:
+      tags:
+      - Employees
+      summary: Delete an employee by ID
+      operationId: deleteEmployeeById
+      parameters:
+      - name: employeeId
+        in: path
+        description: Employee ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Employee'
+        "400":
+          description: Bad request. Employee ID must be an integer and larger than 0.
+        "401":
+          description: Authorization information is missing or invalid.
+        "404":
+          description: A user with the specified ID was not found.
+        "500":
+          description: Unexpected error.
+  /products:
+    get:
+      tags:
+      - Products
+      summary: Returns a list of products.
+      description: This is a description
+      operationId: getProduct
+      responses:
+        "200":
+          description: A JSON array of product names
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Products'
+    post:
+      tags:
+      - Products
+      summary: Adds a new product
+      operationId: createProduct
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+      responses:
+        "201":
+          description: OK
+        "400":
+          description: Bad request. Product ID must be an integer and larger than 0.
+        "401":
+          description: Authorization information is missing or invalid.
+  /products/{productId}:
+    get:
+      tags:
+      - Products
+      summary: Gets a product by ID
+      operationId: getProductById
+      parameters:
+      - name: productId
+        in: path
+        description: Product ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        "400":
+          description: Bad request. Product ID must be an integer and larger than 0.
+        "401":
+          description: Authorization information is missing or invalid.
+        "404":
+          description: A product with the specified ID was not found.
+        "500":
+          description: Unexpected error.
+    put:
+      tags:
+      - Products
+      summary: Updates a product
+      operationId: updateProduct
+      parameters:
+      - name: productId
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+      responses:
+        "201":
+          description: OK
+        "400":
+          description: Bad request. Product ID must be an integer and larger than 0.
+        "401":
+          description: Authorization information is missing or invalid.
+    delete:
+      tags:
+      - Products
+      summary: Delete a product by ID
+      operationId: deleteProductById
+      parameters:
+      - name: productId
+        in: path
+        description: Product ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        "400":
+          description: Bad request. Product ID must be an integer and larger than 0.
+        "401":
+          description: Authorization information is missing or invalid.
+        "404":
+          description: A user with the specified ID was not found.
+        "500":
+          description: Unexpected error.
+  /customers:
+    get:
+      tags:
+      - Customers
+      summary: Returns a list of customers.
+      description: This is a description
+      operationId: getCustomers
+      responses:
+        "200":
+          description: A JSON array of customer names
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customers'
+    post:
+      tags:
+      - Customers
+      summary: Adds a new customer
+      operationId: getUserById
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+      responses:
+        "201":
+          description: OK
+        "400":
+          description: Bad request. Customer ID must be an integer and larger than 0.
+        "401":
+          description: Authorization information is missing or invalid.
+  /customers/{customerId}:
+    get:
+      tags:
+      - Customers
+      summary: Gets a product by ID
+      operationId: getCustomerById
+      parameters:
+      - name: customerId
+        in: path
+        description: Product ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        "400":
+          description: Bad request. Product ID must be an integer and larger than 0.
+        "401":
+          description: Authorization information is missing or invalid.
+        "404":
+          description: A customer with the specified ID was not found.
+        "500":
+          description: Unexpected error.
+    put:
+      tags:
+      - Customers
+      summary: Updates a customer
+      operationId: updateCustomerById
+      parameters:
+      - name: customerId
+        in: path
+        description: ID of customer that need to be updated
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+      responses:
+        "201":
+          description: OK
+        "400":
+          description: Bad request. Customer ID must be an integer and larger than 0.
+        "401":
+          description: Authorization information is missing or invalid.
+    delete:
+      tags:
+      - Customers
+      summary: Delete a customer by ID
+      operationId: deleteCustomertById
+      parameters:
+      - name: customerId
+        in: path
+        description: Customer ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+        "400":
+          description: Bad request. Customer ID must be an integer and larger than 0.
+        "401":
+          description: Authorization information is missing or invalid.
+        "404":
+          description: A customer with the specified ID was not found.
+        "500":
+          description: Unexpected error.
+  /purchaseInfo:
+    get:
+      tags:
+      - PurchaseInfo
+      summary: Returns a list of purchaseInfos.
+      description: This is a description
+      operationId: getPurchaseInfo
+      responses:
+        "200":
+          description: A JSON array of purchaseInfo names
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PurchaseInfos'
+    post:
+      tags:
+      - PurchaseInfo
+      summary: Adds a new purchaseInfo
+      operationId: createPurchaseInfo
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PurchaseInfo'
+      responses:
+        "201":
+          description: OK
+        "400":
+          description: Bad request. PurchaseInfo ID must be an integer and larger than 0.
+        "401":
+          description: Authorization information is missing or invalid.
+  /purchaseInfo/{purchaseInfoId}:
+    get:
+      tags:
+      - PurchaseInfo
+      summary: Gets a purchaseInfo by ID
+      operationId: getPurchaseInfoById
+      parameters:
+      - name: purchaseInfoId
+        in: path
+        description: PurchaseInfo ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PurchaseInfo'
+        "400":
+          description: Bad request. Purchase ID must be an integer and larger than 0.
+        "401":
+          description: Authorization information is missing or invalid.
+        "404":
+          description: A purchaseInfo with the specified ID was not found.
+        "500":
+          description: Unexpected error.
+    put:
+      tags:
+      - PurchaseInfo
+      summary: Updates a purchaseInfo
+      operationId: updatePurchaseInfo
+      parameters:
+      - name: purchaseInfoId
+        in: path
+        description: ID of purchaseInfo that needs to be updated
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PurchaseInfo'
+      responses:
+        "201":
+          description: OK
+        "400":
+          description: Bad request. Purchase ID must be an integer and larger than 0.
+        "401":
+          description: Authorization information is missing or invalid.
+    delete:
+      tags:
+      - PurchaseInfo
+      summary: Delete a customer by ID
+      operationId: deletePurchaseInfoById
+      parameters:
+      - name: purchaseInfoId
+        in: path
+        description: PurchaseInfo ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PurchaseInfo'
+        "400":
+          description: Bad request. PurchaseInfo ID must be an integer and larger than 0.
+        "401":
+          description: Authorization information is missing or invalid.
+        "404":
+          description: A purchaseInfo with the specified ID was not found.
+        "500":
+          description: Unexpected error.
+components:
+  schemas:
+    Employees:
+      type: array
+      items:
+        $ref: '#/components/schemas/Employee'
+    Employee:
+      required:
+      - birthdate
+      - firstName
+      - gender
+      - hiredate
+      - id
+      - lastName
+      - role
+      - salary
+      type: object
+      properties:
+        firstName:
+          type: string
+          example: John
+        lastName:
+          type: string
+          example: Smith
+        gender:
+          type: string
+          example: male
+        birthdate:
+          type: string
+          example: 05-07-2001
+        hiredate:
+          type: string
+          example: 10-03-2020
+        role:
+          type: string
+          example: user
+        salary:
+          type: integer
+          example: 1000
+    Products:
+      type: array
+      items:
+        $ref: '#/components/schemas/Product'
+    Product:
+      type: object
+      properties:
+        name:
+          type: string
+        price:
+          type: number
+        quantity:
+          type: integer
+    Customers:
+      type: array
+      items:
+        $ref: '#/components/schemas/Customer'
+    Customer:
+      type: object
+      properties:
+        firstName:
+          type: string
+        lstName:
+          type: string
+        phoneNumber:
+          type: string
+        address:
+          type: string
+    PurchaseInfos:
+      type: array
+      items:
+        $ref: '#/components/schemas/PurchaseInfo'
+    PurchaseInfo:
+      type: object
+      properties:
+        customers:
+          $ref: '#/components/schemas/Customers'
+        products:
+          $ref: '#/components/schemas/Products'
+        employees:
+          $ref: '#/components/schemas/Employees'
+        cost:
+          type: number
+        amount:
+          type: integer
+        date:
+          type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

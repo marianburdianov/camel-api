@@ -1,0 +1,11 @@
+pipeline {
+    agent any
+    stages {
+        stage("Postman Test") {
+            steps {
+                echo "Starting Postman Test"
+                bat "C:/Users/maria/AppData/Roaming/npm/newman run --disable-unicode https://www.getpostman.com/collections/30b14c292bd081aa485e --reporters html --reporter-html-export D:/MarianOptimal/PostmanCollection/newman/report.html"
+            }
+        }
+    }
+}

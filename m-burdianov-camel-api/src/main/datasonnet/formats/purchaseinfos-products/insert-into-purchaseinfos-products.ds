@@ -1,0 +1,6 @@
+local listOfProducts = cml.exchangeProperty('listOfProducts');
+local count = cml.exchangeProperty('CamelLoopIndex');
+
+{
+    productId: listOfProducts[count]
+}

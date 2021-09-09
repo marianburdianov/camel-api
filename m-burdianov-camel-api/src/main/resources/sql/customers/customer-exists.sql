@@ -1,0 +1,1 @@
+SELECT customer_id FROM customers WHERE customer_id = :#${exchangeProperty.customerId}

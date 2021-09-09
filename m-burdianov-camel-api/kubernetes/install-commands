@@ -1,0 +1,9 @@
+kubectl apply -f ./mysql-secrets.yaml
+kubectl apply -f ./mysql-config-map.yaml
+kubectl apply -f ./mysql-persistence.yaml
+sleep(40)
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.45.0/deploy/static/provider/cloud/deploy.yaml
+sleep(20)
+kubectl apply -f ./deployment.yaml
+
+kubectl port-forward statefulset/mysql-sfs 3306
